@@ -1,0 +1,7 @@
+FROM alpine:3.9
+
+RUN apk update
+
+RUN apk add g++
+RUN apk add gfortran
+RUN apk add bash
