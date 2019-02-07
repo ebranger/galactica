@@ -1,29 +1,43 @@
 #!/bin/bash
 
-# Script to disable all accounts that have not logged in in the last 180 days.
+limit_days=180
+
+# Script to disable all user accounts that have not logged in
+# in the last $limit_days days.
 # Must be run with superuser privileges.
+# Users that have a folder in /home AND that have not logged in according to
+# both 'lastlog' AND 'last' will be disabled.
 
 # Author: Peter Jansson
-# Date: 2019-01-16
-#
+# Date: 2019-02-07
 
-#echo "Users that have not logged in, in the last 180 days:"
-not_loggedin_users=$(lastlog -b 180 | tail -n +2 | cut -d ' ' -f 1,1)
-#echo $not_loggedin_users
+# To re-enable a user login, run the following commands:
+#  passwd -u LOGIN
+#  chage -E -1 LOGIN
 
-#echo "Users from the home folder:"
-home_users=$(ls /home)
-#echo $home_users
+# Function to disable a user login specified by $1.
+disable() {
+  passwd -l $1;
+  chage -E 0 $1;
+  echo "$1 was disabled due to account inactivity";
+}
 
-#echo -n "For each user from the home folder, check if she/he is in the "
-#echo "'180 days' list"
+limit_stamp=$(date -d "now - $limit_days days" +%s)
+lastlog_list=$(lastlog -b $limit_days | tail -n +2 | cut -d ' ' -f 1,1)
 
-for user in $home_users; do
-   for user_check in $not_loggedin_users; do
-      if [[ "$user_check" = "$user" ]]; then
-#         echo "$user is in the list, account is disabled"
-         passwd -l $user
-         chage -E 0 $user
+for user in $(ls /home); do
+  for lastlog_user in $lastlog_list; do
+    if [[ "$lastlog_user" = "$user" ]]; then
+      if [ $(last $user | wc -l) -ge 3 ]; then
+        # Have > 0 entries in the 'last' list.
+        last_stamp=$(date -d "$(last -FR $user | head -1 |cut -c 23-46)" +%s)
+        if [ $limit_stamp -ge $last_stamp ]; then
+          disable $user
+        fi
+      else
+        # The 'last' list is empty, assume no recent login.
+        disable $user
       fi
-   done
+    fi
+  done
 done
