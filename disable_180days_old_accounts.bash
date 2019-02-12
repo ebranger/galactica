@@ -18,7 +18,7 @@ limit_days=180
 # Function to disable a user login specified by $1.
 disable() {
   passwd -l $1 \
-    | grep -v "passwd: Success"
+    | grep -v "passwd: Success" \
     | grep -v "Locking password for user ";
   chage -E 0 $1;
   echo "$1 was disabled due to account inactivity";
