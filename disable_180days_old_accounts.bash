@@ -9,7 +9,7 @@ limit_days=180
 # both 'lastlog' AND 'last' will be disabled.
 
 # Author: Peter Jansson
-# Date: 2019-02-07
+# Date: 2019-02-12
 
 # To re-enable a user login, run the following commands:
 #  passwd -u LOGIN
@@ -17,8 +17,8 @@ limit_days=180
 
 # Function to disable a user login specified by $1.
 disable() {
-  passwd -l $1;
-  chage -E 0 $1;
+  passwd -l $1 | grep -v "passwd: Success";
+  chage -E 0 $1 | grep -v "Locking password for user ";
   echo "$1 was disabled due to account inactivity";
 }
 
