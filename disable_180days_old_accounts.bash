@@ -21,7 +21,6 @@ disable() {
     | grep -v "passwd: Success" \
     | grep -v "Locking password for user ";
   chage -E 0 $1;
-  echo "$1 was disabled due to account inactivity";
 }
 
 limit_stamp=$(date -d "now - $limit_days days" +%s)
