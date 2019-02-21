@@ -9,7 +9,6 @@ limit_days=180
 # both 'lastlog' AND 'last' will be disabled.
 
 # Author: Peter Jansson
-# Date: 2019-02-12
 
 # To re-enable a user login, run the following commands:
 #  passwd -u LOGIN
