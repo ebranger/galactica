@@ -65,7 +65,8 @@ function getNewestDirInChain {
 function getExpiredDirInChain {
   ret=$(find "$1" -mindepth 1 -maxdepth 1 \
                   -name "*$2" -type d -mmin "+$3" \
-                  | tail -n1 ) 
+                  -printf "%T@ %p\n" | sort -n \
+                  | cut -f2 -d' ' | head -n1 ) 
 }
 
 
@@ -99,29 +100,32 @@ function addBackupToChain {
 # arguments
 #   $1 backup directory
 #   $2 chain suffix
-#   $3 source directory
-#   $4 interval between backups in mins 
-#   $5 retention period in mins 
+#   $3 interval between backups in mins 
+#   $4 retention period in mins 
+#   $5 source directory
 #
 function updateBackupChain {
   local backupRootDir="$1"
   local chain="$2"
-  getNewestDirInChain $1 "$chain"    
+  getNewestDirInChain $backupRootDir "$chain"    
   local lastBackupDir="$ret"
-  local sourceDir="$3"
-  local interval="$4"
-  local retentionDuration="$5"
+  local interval="$3"
+  local retentionDuration="$4"
+  local sourceDir="$5"
 
   if [[ -z $chain ]]; then
     echo "Name of chain must be specified!"
     exit 1
   fi
 
+  local backupCreationTime="$(date -d "$(stat -c %y "$lastBackupDir")" +"%Y-%m-%d %H:%M:%S")"
+  debugPrint "`date +\"%Y-%m-%d %H:%M:%S\"`"
   debugPrint "Starting backup routine..."
   debugPrint "# --- info ---" 
   debugPrint "# backup root directory: $backupRootDir"
   debugPrint "# current chain: $chain"
   debugPrint "# last backup in chain: $lastBackupDir" 
+  debugPrint "# created on: $backupCreationTime"
   debugPrint "# backup interval: $interval min"
   debugPrint "# backup retention: $retentionDuration min"
   debugPrint "# --- actions ---"
@@ -129,9 +133,9 @@ function updateBackupChain {
   if test "`find $lastBackupDir -maxdepth 0 -mmin +$interval`" -o \
           -z "$lastBackupDir"; then
     debugPrint "# it's time, creating a new backup..."
-    addBackupToChain $1 $2 $3   
+    addBackupToChain $backupRootDir $chain $sourceDir   
     debugPrint "# created the backup dir $ret"
-    getExpiredDirInChain $1 $2 $retentionDuration
+    getExpiredDirInChain $backupRootDir $chain $retentionDuration
     local expiredDir="$ret"  
     if [[ ! -z $expiredDir ]]; then
       debugPrint "# deleting expired backup dir $expiredDir"
@@ -146,4 +150,71 @@ function updateBackupChain {
   fi
   debugPrint "Returning from backup routine..."
 }
+
+
+# main routine
+# purpose
+#   perform an action according to arguments passed
+#   and show a help screen if arguments are invalid
+# arguments
+#   depending on the subroutine
+#   if invalid arguments are passed
+#   a help screen with the correct syntax
+#   will be printed
+#   
+function main { 
+  if [ "$1" = "backup" ]; then
+    local backupDir="$2"
+    local chain="$3"
+    local interval_day="$4"
+    local retention_day="$5"
+    local sourceDir="$6"
+
+    # sanity checks
+    numRex='^[0-9]+([.][0-9]+)?$'
+    chainRex='^[0-9a-zA-Z]+$'
+    if [ ! -d "$backupDir" ]; then
+      echo "specified backup directory '$backupDir' does not exist!"
+      exit 1
+    elif [ ! -d "$sourceDir" ]; then
+      echo "specified source directory '$sourceDir' does not exist!"
+      exit 1
+    elif ! [[ $chain =~ $chainRex ]]; then
+      echo "specified chain name is invalid, only letters and digits are allowed!"
+      exit 1
+    elif ! [[ $interval_day =~ $numRex ]]; then
+      echo "specified interval is not a valid number!"
+      exit 1
+    elif ! [[ $retention_day =~ $numRex ]]; then
+      echo "specified retention duration is not a valid number!"
+      exit 1 
+    fi
+
+    # internally work with minutes instead of days
+    local interval_min=`awk -v x="$interval_day" 'BEGIN {printf "%.0f", (x * 24*60)}'`
+    local retention_min=`awk -v x="$retention_day" 'BEGIN {printf "%.0f", (x * 24*60)}'`
+
+    echo "interval in days: $interval_day"
+    echo "interval in min: $interval_min"
+    echo "backupdir: $backupDir"
+    echo "chain: $chain"
+    echo "retention: $retention_min"
+    echo "sourcedir: $sourceDir"
+
+    updateBackupChain "$backupDir" "$chain" "$interval_min" "$retention_min" "$sourceDir" 
+
+  else
+    echo
+    echo "user_backup.bash backup {backupdir} {chain} {interval} {retention} {sourcedir}"
+    echo 
+    echo "{backupdir}      the directory to store the backups"
+    echo "{chain}          the name of the chain to update"
+    echo "{interval}       interval between consecutive backups in days"
+    echo "{retention}      retention time of backups in days"
+    echo "{sourcedir}      the directory that should be backed up"
+  fi
+}
+
+# call the main function
+main "$@"
 
