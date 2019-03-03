@@ -1,0 +1,3 @@
+[submodule "incRsyncBackup"]
+	path = incRsyncBackup
+	url = https://github.com/gschnabel/incRsyncBackup
