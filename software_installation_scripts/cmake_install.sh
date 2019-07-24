@@ -1,5 +1,5 @@
-export P=cmake-3.7.2
-wget https://cmake.org/files/v3.7/$P.tar.gz
+wget https://github.com/Kitware/CMake/releases/download/v3.15.0/cmake-3.15.0.tar.gz
+export P=$(basename cmake-*.tar.gz .tar.gz)
 tar xzf $P.tar.gz
 cd $P
 ./configure --prefix=/usr/local/$P
