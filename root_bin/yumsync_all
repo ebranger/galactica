@@ -2,5 +2,5 @@ for h in apollo adama starbuck roslin caprica gaius boomer
 do
    #echo "############################";
    #echo "      $h";
-   ssh $h "/root/bin/yumsync.py -y --erase --silent";
+   ssh $h "/root/git_wdir/galactica/root_bin/yumsync.py -y --erase --silent";
 done
