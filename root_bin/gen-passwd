@@ -1,0 +1,44 @@
+#!/usr/bin/python
+import os
+import sys
+import random
+
+user = sys.argv[1]
+
+if len(sys.argv) > 2:
+    email = sys.argv[2]
+else:
+    email = False
+
+passwd = ''
+
+numbers = range(48, 58)
+letters = range(97, 122)
+LETTERS = range(65, 90)
+
+characters = numbers + letters + LETTERS
+
+n = 3
+font_size = 12
+
+for i in range(n):
+    passwd = passwd + chr(random.sample(letters, 1)[0])
+
+for i in range(n):
+    passwd = passwd + chr(random.sample(numbers, 1)[0])
+
+for i in range(n):
+    passwd = passwd + chr(random.sample(LETTERS, 1)[0])
+
+print " " 
+print "user: %s" %(user)
+print "pass: %s" %(passwd)
+print " "
+
+os.system('echo "%s:%s" > passwd' %(user, passwd))
+os.system('chpasswd < passwd')
+
+if email:
+    os.system('cat passwd | mail -s "Do not reply" -r root@galactica.physics.uu.se %s' %(email))
+
+os.system('rm passwd')

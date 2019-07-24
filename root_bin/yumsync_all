@@ -1,0 +1,6 @@
+for h in apollo adama starbuck roslin caprica gaius boomer
+do
+   #echo "############################";
+   #echo "      $h";
+   ssh $h "/root/bin/yumsync.py -y --erase --silent";
+done

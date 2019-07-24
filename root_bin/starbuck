@@ -1,0 +1,1 @@
+python -c 'import os;d=os.getcwd();os.system("ssh -t starbuck \"cd %s && exec bash -l\"" %d)'

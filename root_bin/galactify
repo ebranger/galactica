@@ -1,0 +1,26 @@
+if [ "$(hostname)" != 'galactica.physics.uu.se' ];
+   then
+	scp 192.168.1.100:/etc/passwd /etc/
+	scp 192.168.1.100:/etc/shadow /etc/
+	scp 192.168.1.100:/etc/group  /etc/
+	scp 192.168.1.100:/etc/gshadow /etc/
+	scp 192.168.1.100:/etc/hosts /etc/
+	scp 192.168.1.100:/etc/resolv.conf /etc/
+	scp 192.168.1.100:/etc/bashrc /etc/
+	scp 192.168.1.100:/etc/c3.conf /etc/
+	scp 192.168.1.100:/etc/sudoers /etc/
+
+	scp -r 192.168.1.100:/etc/profile.d /etc/
+	scp 192.168.1.100:/etc/dconf/db/gdm.d/01-custom-gdm-settings /etc/dconf/db/gdm.d/
+ 	scp 192.168.1.100:/etc/sysconfig/selinux /etc/sysconfig/
+
+        rsync -a 192.168.1.100:/etc/yum.conf /etc/
+        rsync -a 192.168.1.100:'/var/cache/yum/' /var/cache/yum/
+	rsync -a 192.168.1.100:'/root/bin/galactify /root/bin/yumsync.py' /root/bin/	
+
+	rsync -a --delete-after 192.168.1.100:/scratch/ /scratch	
+	rsync -a --delete-after 192.168.1.100:/usr/local/ /usr/local/
+	rsync -a --delete-after 192.168.1.100:/root/Downloads/ /root/Downloads/
+
+        rsync -a 192.168.1.100:/usr/lib64/R/library/ /usr/lib64/R/library
+fi
