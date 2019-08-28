@@ -3,6 +3,8 @@ import os
 import sys
 import random
 
+# This script is used by the new_galactica_user script.
+
 user = sys.argv[1]
 
 if len(sys.argv) > 2:
