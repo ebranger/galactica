@@ -10,3 +10,7 @@
 # Collect SAR data both at galactica and the other nodes.
 5 16 * * * /root/git_wdir/galactica/root_bin/collect_sar_data.sh /root/sar_data > /dev/null
 5 16 * * * /opt/c3-5/cexec /root/git_wdir/galactica/root_bin/collect_sar_data.sh /root/sar_data > /dev/null
+
+# 2019-10-08: Out of space at "/". rsyslog seem to be going crazy and consuming
+# cpu and ram, therefore restarting it occasionally.
+@hourly /bin/systemctl restart rsyslog.service
