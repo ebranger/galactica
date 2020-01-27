@@ -21,7 +21,10 @@ else
 	adduser $1 -c "$2 <$3>" \
 		&& usermod -aG dockerroot $1 \
 		&& usermod -aG docker $1 \
-		&& setfacl -m user:$(id -u $1):rw /var/run/docker.sock \
 		&& gen-passwd $1 $3
+	FILE=/var/run/docker.sock
+	if test -f "$FILE"; then
+		setfacl -m user:$(id -u $1):rw $FILE
+	fi
 fi
 
