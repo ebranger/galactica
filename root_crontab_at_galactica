@@ -10,3 +10,6 @@
 # Collect SAR data both at galactica and the other nodes.
 5 16 * * * /root/git_wdir/galactica/root_bin/collect_sar_data.sh /root/sar_data > /dev/null
 5 16 * * * /opt/c3-5/cexec /root/git_wdir/galactica/root_bin/collect_sar_data.sh /root/sar_data > /dev/null
+
+# Plot SAR data at regular intervals
+@daily /root/git_wdir/galactica/sar_data_collection/plot_sar_data.sh > /dev/null
