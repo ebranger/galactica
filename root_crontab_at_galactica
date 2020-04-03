@@ -5,7 +5,7 @@
 0 2 * * * /root/git_wdir/galactica/root_bin/backup_home
 0 3 * * * /root/git_wdir/galactica/root_bin/backup_NFS
 # 0 4 * * * /root/git_wdir/galactica/root_bin/backup_TMC
-@daily /root/git_wdir/galactica/root_bin/disable_180days_old_accounts.bash
+@monthly /root/git_wdir/galactica/root_bin/disable_180days_old_accounts.bash
 
 # Collect SAR data both at galactica and the other nodes.
 5 16 * * * /root/git_wdir/galactica/root_bin/collect_sar_data.sh /root/sar_data > /dev/null
