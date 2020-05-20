@@ -16,7 +16,7 @@ You can log in to the home node at `galactica.physcis.uu.se` for light work such
 
 For computationally heavy work, please use one of the compute nodes. You can log in to these from galactica using ssh.
 
-The first time you log in, run the command passwordless. After you have done this run the program `loadavg` to see which nodes that are currently available and their present workload.
+The first time you log in, run the command `passwordless`. After you have done this run the program `loadavg` to see which nodes that are currently available and their present workload.
 
 ## Priorities
 
