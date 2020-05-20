@@ -1,0 +1,129 @@
+#!/usr/bin/python
+from numpy import *
+
+import os
+import sys
+
+#hosts = ['galactica', 'apollo', 'adama', 'starbuck', 'roslin', 'caprica']
+#CPU_max = [1600, 6400, 6400, 6400, 6400, 3200]
+
+hosts = ['galactica', 'apollo', 'starbuck', 'adama', 'roslin', 'caprica', 'gaius', 'boomer']
+CPU_max = [1600, 6400, 6400, 6400, 6400, 3200, 3200, 3200]
+
+if '--detailed' in sys.argv:
+    detailed = True
+else:
+    detailed = False
+
+print 'host              high prio      low prio         total'
+print '-------------------------------------------------------'
+for i_host, host in enumerate(hosts):
+    try:
+        os.system('ssh ' + host + ' top -b -n 1 > out')
+        Top = open('out')
+        Top = Top.readlines()
+        os.system('rm out')
+
+        i = 0
+
+        while True:
+            top = Top[i].split()
+
+            if len(top) > 0:
+                i = i+1
+                continue
+
+            else:
+                i = i+1
+                break
+
+
+        header = Top[i].split()
+
+        CPU  = []
+        USER = []
+        NICE = []
+
+        i_nice = header.index('NI')
+        i_user = header.index('USER')
+        i_cpu  = header.index('%CPU')
+
+        for j in range(i+1,len(Top)):
+
+            if len(Top[j]) > 5:
+                top = Top[j]
+                top = top.replace(',', '.')
+                top = top.split()
+            else:
+                continue
+
+            cpu  = float(top[i_cpu])
+            nice = float(top[i_nice])
+            user = top[i_user]
+
+
+            CPU.append(cpu)
+            NICE.append(nice)
+            USER.append(user)
+
+
+        CPU = array(CPU)
+        NICE = array(NICE)
+        USER = array(USER)
+
+        tot_cpu = sum(CPU)
+        users = unique(USER)
+
+        i_lp = where((NICE > 0) & (CPU > 1.0))[0]
+        i_hp = where((NICE <= 0) & (CPU > 1.0))[0]
+
+        high_cpu = sum(CPU[i_hp])
+        low_cpu  = sum(CPU[i_lp])
+
+        if host != 'galactica':
+            print "%-13s %11.1f %% %11.1f %% %11.1f %%  (max = %i %%)" %(host, high_cpu, low_cpu, tot_cpu, CPU_max[i_host]) 
+        else:       
+            print "%-13s %11.1f %% %11.1f %% %11.1f %%" %(host, high_cpu, low_cpu, tot_cpu)
+
+
+        if detailed:
+
+            # print high priority
+            # --------------------
+
+            if len(i_hp) > 0:
+
+                print " "
+                print "    High priority"
+                print "    -----------------"
+
+                for user in users:
+                    i = where(USER[i_hp] == user)[0]
+
+                    if len(i) > 0:
+                        print "    %s: %.1f%%" %(user, sum(CPU[i_hp][i]))
+
+
+
+            # print low priority
+            # --------------------
+
+            if len(i_lp) > 0:
+
+                print " "
+                print "    Low priority"
+                print "    -----------------"
+
+                for user in users:
+                    i = where(USER[i_lp] == user)[0]
+
+                    if len(i) > 0:
+                        print "    %s: %.1f%%" %(user, sum(CPU[i_lp][i]))
+
+
+
+            print " "
+
+    except:
+        pass
+
