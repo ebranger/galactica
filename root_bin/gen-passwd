@@ -41,6 +41,6 @@ os.system('echo "%s:%s" > passwd' %(user, passwd))
 os.system('chpasswd < passwd')
 
 if email:
-    os.system('cat passwd | mail -s "Do not reply" -r root@galactica.physics.uu.se %s' %(email))
+    os.system('cat passwd && echo "" && echo "Usage instructions at https://github.com/github-peter/galactica/tree/master/instructions/users" | mail -s "Do not reply" -r root@galactica.physics.uu.se %s' %(email))
 
 os.system('rm passwd')
