@@ -1,5 +1,7 @@
-export PATH=/usr/local/MCNP:$PATH
-export DATAPATH=/usr/local/MCNP/DATA
+if id -nG "$USER" | grep -qw scoobygang ; then
+   export PATH=/usr/local/MCNP:$PATH
+   export DATAPATH=/usr/local/MCNP/DATA
+fi
 
 export PATH=/opt/paraview/bin:$PATH
 export LD_LIBRARY_PATH=/opt/paraview/lib:$LD_LIBRARY_PATH
