@@ -88,7 +88,7 @@
        Updates to Serpent 2 installation are now complete.
 
 ## Guide to setup of data libraries for Serpent 2 on SNIC HPC 
-1. The cross-section libraries available in the Galactica `/usr/local/SERPENT-DATA` directory are: `jeff31.zip`, `jeff311.zip`, `endfb7.zip`, `endfb68.zip` & `jef22.zip`. To begin set-up of data libraries, extract the files using the following command: `unzip filename.zip`. The guide describes the case for `jeff31`.  
+1. The cross-section libraries available in the Galactica `/usr/local/Serpent2/xsdata` directory are: `jeff31.zip`, `jeff311.zip`, `endfb7.zip`, `endfb68.zip` & `jef22.zip`. To begin set-up of data libraries, extract the files using the following command: `unzip filename.zip`. The guide describes the case for `jeff31`.  
 
 2. Once the library is unzipped, it needs to be formatted correctly so Serpent 2 can read it. Serpent 2 uses continuous-energy cross sections from ACE format data libraries. The file residing in the installation directory is in `xsdir` format which needs to be converted to `xsdata` format using a Perl script [`xsdirconvert.pl`](http://montecarlo.vtt.fi/download/xsdirconvert.pl). We assume that all cross-section files are placed in the `xs-data` directory along with the script:
     ```
