@@ -5,7 +5,7 @@ These are instructions for users of the galactica computer cluster.
 
 The Linux cluster Galactica consists of one home node that contains, among other things, the users home directories as well as a number of compute nodes.
 
-You can log in to the home node at `galactica.physcis.uu.se` for light work such as file handling and editing and some matlab. However, it is important that you do not run massively parallel calculations on the home node as that will slow down the entire cluster. Should you do this (by mistake of course) your calculations may be terminated without prior notification. If in doubt, ask first.
+You can log in to the home node at `galactica.physics.uu.se` for light work such as file handling and editing and some matlab. However, it is important that you do not run massively parallel calculations on the home node as that will slow down the entire cluster. Should you do this (by mistake of course) your calculations may be terminated without prior notification. If in doubt, ask first.
 
 For computationally heavy work, please use one of the compute nodes. You can log in to these from galactica using ssh.
 
