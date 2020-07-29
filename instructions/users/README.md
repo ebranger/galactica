@@ -15,7 +15,7 @@ To log in to one of the compute nodes, you may use a shortcut command named the 
 
 ## Priorities
 
-If you are running large jobs in parallel you might want to occupy a whole compute node. However, doing so for an extended time could be problematic as it prevents others from running shorter calculations efficiently. If you have long running calculations (i.e., extending beyond hours), please run these in low priority. This is done with the nice command.
+If you are running large jobs in parallel you might want to occupy a whole compute node. However, doing so for an extended time could be problematic as it prevents others from running shorter calculations efficiently. If you have long running calculations (i.e., extending beyond hours), please run these in low priority. This is done with the [nice](https://linux.die.net/man/1/nice) command.
 
 To run e.g. serpent with low priority type: `nice -n 20 sss2 -omp 64 ABR`
 
