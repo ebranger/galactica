@@ -20,7 +20,6 @@ if [ "$(hostname)" != 'galactica.physics.uu.se' ];
 	rsync -a --delete-after 192.168.1.100:/root/git_wdir/ /root/git_wdir/
 
 	rsync -a --delete-after 192.168.1.100:/usr/local/ /usr/local/
-	rsync -a --delete-after 192.168.1.100:/root/Downloads/ /root/Downloads/
 
         rsync -a 192.168.1.100:/usr/lib64/R/library/ /usr/lib64/R/library
 fi
