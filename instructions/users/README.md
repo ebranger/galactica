@@ -16,7 +16,7 @@ Use ssh to log in to one of the compute nodes, e.g. `ssh adama`to log in to the 
 
 For computationally heavy work, please use one of the compute nodes.
 
-The cluster is sensitive to heavy disc I/O on the /home folder, so please consider rate limiting your reading/writing from/to files.
+The cluster is sensitive to heavy disc I/O on the /home folder, so please consider rate limiting your reading/writing from/to files at /home.
 
 ## Priorities
 
