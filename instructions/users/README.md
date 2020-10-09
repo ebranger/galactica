@@ -9,8 +9,9 @@ You can log in to the home node at `galactica.physics.uu.se` for light work such
 
 The first time you log in, run the command `passwordless`. After you have done this run the program `loadavg` to see which nodes that are currently available and their present workload.
 
-
 Use ssh to log in to one of the compute nodes, e.g. `ssh adama`to log in to the adama node. There is also a shortcut command named the same as the node, e.g. use `adama` to to log in to the adama node.
+
+Please log in at least once every 180 day in order to prevent your account from being locked.
 
 ## Usage
 
