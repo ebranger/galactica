@@ -19,6 +19,8 @@ For computationally heavy work, please use one of the compute nodes.
 
 The cluster is sensitive to heavy disc I/O on the /home folder, so please consider rate limiting your reading/writing from/to files at /home.
 
+To save on the limited disc space, try to not store files at galactica that you don't need for your current application/work/calculation.
+
 ## Priorities
 
 If you are running large jobs in parallel you might want to occupy a whole compute node. However, doing so for an extended time could be problematic as it prevents others from running shorter calculations efficiently. If you have long running calculations (i.e., extending beyond hours), please run these in low priority. This is done with the [nice](https://linux.die.net/man/1/nice) command.
