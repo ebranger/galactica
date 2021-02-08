@@ -1,11 +1,11 @@
 ## Guide to installation of Serpent 2 on SNIC HPC
 
-1. Find a suitable SFTP client to move Serpent 2 installation files from Galactica `/usr/local/Serpent2` directory to SNIC user directory. On Unix/MacOS, use Cyberduck or the in-built shell. Windows users may use WinSCP, FileZilla, or something similar.
+1. Find a suitable SFTP client to copy Serpent 2 installation files from Galactica `/usr/local/Serpent2` directory to SNIC user directory. On Unix/MacOS, use Cyberduck or the in-built shell. Windows users may use WinSCP, FileZilla, or something similar.
     - The SCP command should look something like: `scp -r user@server1:/path/to/dir user@server2:/path/to/dir`, where `server1`is `galactica.physics.uu.se` and `server2` is `rackham.uppmax.uu.se` if the user is allocated HPCs on Rackham cluster in Uppmax.
 
+2. Verify the SHA256 checksum value after copying files to ensure all files were copied correctly: `sha256sum -c sha256sum.txt`
 
-2. Verify the SHA256 checksum value after copying files to ensure all files were copied correctly.
-3. Once the requisite files have been moved to Uppmax destination directory, begin the installation process according to: [Serpent2 installation](http://serpent.vtt.fi/mediawiki/index.php/Installing_and_running_Serpent). Steps summarized below:
+3. Once the required files have been copied to the Uppmax destination directory, begin the installation process according to: [Serpent2 installation](http://serpent.vtt.fi/mediawiki/index.php/Installing_and_running_Serpent). Steps summarized below:
     1. Extract the installation package from tarball `Serpent2.tar.gz` using `tar -xzf <filename>`.
     2. Serpent 2 is written in C and needs to be compiled using `Make` build tool to compile the code and create the required executables and libraries
     Navigate to the desired installation directory for Serpent 2 (which is also where all the extracted files are) and run the `make` command as indicated below:
