@@ -9,7 +9,7 @@
     1. Extract the installation package from tarball `Serpent2.tar.gz` using `tar -xzf <filename>`.
     2. Serpent 2 is written in C and needs to be compiled using `Make` build tool to compile the code and create the required executables and libraries
     Navigate to the desired installation directory for Serpent 2 (which is also where all the extracted files are) and run the `make` command as indicated below:
-    `~/installation-dir$ make`.
+    `~/installation-dir$ make`
     3. The make command is fairly verbose and prints the progress on the prompt. It should look like the snippet below (taken from [SerpentWiki](http://serpent.vtt.fi/mediawiki/index.php/Installing_and_running_Serpent)) and code should compile successfully without errors and print `Serpent 2 Compiled OK.`, and return to prompt.
           ```
           ~/installation-dir$ make
