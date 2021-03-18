@@ -11,7 +11,7 @@ The first time you log in, run the command `passwordless`. After you have done t
 
 Use ssh to log in to one of the compute nodes, e.g. `ssh adama`to log in to the adama node. There is also a shortcut command named the same as the node, e.g. use `adama` to to log in to the adama node.
 
-Please log in to the home node (`galactica`) at least once every 180 day in order to prevent your account from being locked.
+Please log in to the home node (`galactica`) at least once every 180 day in order to prevent your account from being locked. For this login, you need to use ssh (e.g. [`ssh`](https://linux.die.net/man/1/ssh) on Mac and Linux or [`putty`](https://www.putty.org/) on Windows).
 
 ## Usage
 
