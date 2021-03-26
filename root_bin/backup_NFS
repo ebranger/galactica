@@ -1,3 +1,0 @@
-date > /root/backup_NFS.log
-rsync -av --delete-after /NFS/ /backup_NFS > /root/backup_NFS.log
-#mail -s "galactica backup NFS complete" root@localhost < /root/backup_NFS.log

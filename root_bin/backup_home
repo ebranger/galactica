@@ -1,3 +1,0 @@
-date > /root/backup_home.log
-rsync -a  --delete-before /home/ /backup_home >> /root/backup_home.log 2>&1
-#mail -s "galactica backup home complete" root@localhost < /root/backup_home.log
