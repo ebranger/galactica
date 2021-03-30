@@ -1,3 +1,4 @@
+SHELL=/bin/bash
 * * * * *   /root/git_wdir/galactica/root_bin/killemall.py
 0 * * * *   /root/git_wdir/galactica/root_bin/loadmon.py
 30 1 * * *  /root/git_wdir/galactica/root_bin/yumsync_all
