@@ -3,7 +3,6 @@
 # Script to collect and plot SAR data.
 #
 # Author: Peter Jansson
-# Date: 2020-01-28
 #
 #
 # DIR specifies where this script is located.
@@ -15,7 +14,7 @@ rm -f $DB
 sqlite3 $DB < sar_db_setup.sql
 # Collect data (that was gathered via Cron) from the compute nodes.
 DD=~/sar_data
-cexec rsync -a ~/sar_data/ galactica:$DD/
+/opt/c3-5/cexec rsync -a ~/sar_data/ galactica:$DD/
 # Populate database with data
 ./sar_load_all_data_into_db.sh $DB $DD
 # Plot data
