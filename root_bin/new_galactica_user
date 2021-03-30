@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Script to create a new user, set appropriate permissions and to
+# Script to create a new user and to
 # email the password to the new user.
 # Uses the gen-passwd script.
 
@@ -19,12 +19,6 @@ then
 	usage
 else
 	adduser $1 -c "$2 <$3>" \
-		&& usermod -aG dockerroot $1 \
-		&& usermod -aG docker $1 \
 		&& gen-passwd $1 $3
-	FILE=/var/run/docker.sock
-	if test -f "$FILE"; then
-		setfacl -m user:$(id -u $1):rw $FILE
-	fi
 fi
 
