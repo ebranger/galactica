@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Script to create a new user and to
-# email the password to the new user.
+# Script to create a new user including emailing the password to the new user.
+# Also setups email forwarding to the supplied email.
 # Uses the gen-passwd script.
 
 # Author: Peter Jansson
@@ -19,6 +19,6 @@ then
 	usage
 else
 	adduser $1 -c "$2 <$3>" \
-		&& gen-passwd $1 $3
+		&& gen-passwd $1 $3 \
+		&& echo $3 | sudo -u $1 tee  /home/$1/.forward > /dev/null
 fi
-
