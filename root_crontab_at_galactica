@@ -3,7 +3,7 @@
 30 1 * * *  /root/git_wdir/galactica/root_bin/yumsync_all
 0 1 * * *   /root/git_wdir/galactica/root_bin/galactify_all > /dev/null
 0 2 * * *   rsync -a --delete-before /home/ /backup_home 2>&1
-0 3 * * *   rsync -a --delete-after  /NFS/  /backup_NFS  2>&1
+# 0 3 * * * rsync -a --delete-after  /NFS/  /backup_NFS  2>&1
 # 0 4 * * * rsync -a --delete-before /TMC/  /backup_TMC  2>&1
 @monthly    /root/git_wdir/galactica/root_bin/disable_180days_old_accounts.bash
 
