@@ -21,9 +21,10 @@ The cluster is sensitive to heavy disc I/O on the /home folder, so please consid
 
 To save on the limited disc space, try to not store files at galactica that you don't need for your current application/work/calculation.
 
+Some plots of CPU and RAM usage of the cluster over time is available in the `/usage` directory on the login node.
+
 ## Priorities
 
 If you are running large jobs in parallel you might want to occupy a whole compute node. However, doing so for an extended time could be problematic as it prevents others from running shorter calculations efficiently. If you have long running calculations (i.e., extending beyond hours), please run these in low priority. This is done with the [nice](https://linux.die.net/man/1/nice) command.
 
 To run e.g. serpent with low priority type: `nice -n 19 sss2 -omp 64 ABR`
-
