@@ -18,7 +18,7 @@ DD=~/sar_data
 # Populate database with data
 ./sar_load_all_data_into_db.sh $DB $DD
 # Plot data
-python plot_sar_data.py $DB
+python3 plot_sar_data.py $DB
 # Move plots to a user-readable directory.
 mkdir -p -m a+r /usage
 mv -f *.svg /usage
