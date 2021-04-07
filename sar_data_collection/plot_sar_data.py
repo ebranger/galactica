@@ -23,6 +23,7 @@ if __name__ == "__main__":
         fig,ax = plt.subplots(num="{0}".format(hostname))
         ax.set_xlabel("Date")
         ax.set_ylabel("Usage")
+        ax.set_ylim(bottom=0,top=120)
 
         for tfl in  table_field_label_color:
             t = []
