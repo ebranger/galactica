@@ -4,7 +4,6 @@
 # 'collect_sar_data.sh' into a SQLite database.
 
 # Author: Peter Jansson
-# Date: 2019-07-24
 
 # $1: The SQLite database file.
 # $2: The file with compressed SAR data to import into the database.
@@ -12,7 +11,7 @@
 
 # Filter out lines beginning with a '#'.
 tmp=sar_load_data.tmp
-bzcat "$2" | grep -v "^#" > $tmp
+bzcat "$2" | grep -v "^#" | grep -v "LINUX-RESTART" > $tmp
 
 {
    echo ".mode csv"
