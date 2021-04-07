@@ -23,7 +23,7 @@ if __name__ == "__main__":
         fig,ax = plt.subplots(num="{0}".format(hostname))
         ax.set_xlabel("Date")
         ax.xaxis_date()
-        ax.tick_params(axis='x',labelrotation=70,labelsize='small')
+        ax.tick_params(axis='x',labelrotation=70,labelsize='x-small')
         ax.set_ylabel("Usage")
         ax.set_ylim(bottom=0,top=120)
 
