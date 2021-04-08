@@ -23,6 +23,14 @@ To save on the limited disc space, try to not store files at galactica that you 
 
 Some plots of CPU and RAM usage of the cluster over time is available in the `/usage` directory on the login node.
 
+### Background calculations
+
+There are some options available for executing calculation jobs on one of the nodes while not being logged-in:
+
+* Schedule your calculation script using [cron](https://linux.die.net/man/5/crontab). An introduction to using cron scheduling is [available here](https://www.cyberciti.biz/faq/how-do-i-add-jobs-to-cron-under-linux-or-unix-oses/).
+* Start a terminal multiplexer in a terminal and run your program in that session before detaching from it. Later, you can (re-)attach to the same session in the same or any other terminal window. We have the [tmux](https://linux.die.net/man/1/tmux) and [screen](https://linux.die.net/man/1/screen) terminal multiplexer programs installed. One source of information on how to use tmux is [available here](https://github.com/tmux/tmux/wiki) and for screen, a user manual is [available here](https://www.gnu.org/software/screen/manual/screen.html).
+* Run your your script in the background and detached from the terminal, using [nohup](https://linux.die.net/man/1/nohup).
+
 ## Priorities
 
 If you are running large jobs in parallel you might want to occupy a whole compute node. However, doing so for an extended time could be problematic as it prevents others from running shorter calculations efficiently. If you have long running calculations (i.e., extending beyond hours), please run these in low priority. This is done with the [nice](https://linux.die.net/man/1/nice) command.
