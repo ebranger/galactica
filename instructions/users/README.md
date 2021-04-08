@@ -28,7 +28,7 @@ Some plots of CPU and RAM usage of the cluster over time is available in the `/u
 There are some options available for executing calculation jobs on one of the nodes while not being logged-in:
 
 * Schedule your calculation script using [cron](https://linux.die.net/man/5/crontab). An introduction to using cron scheduling is [available here](https://www.cyberciti.biz/faq/how-do-i-add-jobs-to-cron-under-linux-or-unix-oses/).
-* Start a terminal multiplexer in a terminal and run your program in that session before detaching from it. Later, you can (re-)attach to the same session in the same or any other terminal window. We have the [tmux](https://linux.die.net/man/1/tmux) and [screen](https://linux.die.net/man/1/screen) terminal multiplexer programs installed. One source of information on how to use tmux is [available here](https://github.com/tmux/tmux/wiki) and for screen, a user manual is [available here](https://www.gnu.org/software/screen/manual/screen.html).
+* Start a terminal multiplexer in a terminal and run your program in that session before detaching from it. Later, you can (re-)attach to the same session in the same or any other terminal window on the same node. We have the [tmux](https://linux.die.net/man/1/tmux) and [screen](https://linux.die.net/man/1/screen) terminal multiplexer programs installed. One source of information on how to use tmux is [available here](https://github.com/tmux/tmux/wiki) and for screen, a user manual is [available here](https://www.gnu.org/software/screen/manual/screen.html).
 * Run your your script in the background and detached from the terminal, using [nohup](https://linux.die.net/man/1/nohup).
 
 ## Priorities
