@@ -15,7 +15,7 @@ if [ "$(hostname)" != 'galactica.physics.uu.se' ];
  	scp 192.168.1.100:/etc/sysconfig/selinux /etc/sysconfig/
 
         rsync -a 192.168.1.100:/etc/yum.conf /etc/
-        rsync -a 192.168.1.100:'/var/cache/yum/' /var/cache/yum/
+        rsync -a 192.168.1.100:/var/cache/yum/ /var/cache/yum/
 	
 	rsync -a --delete-after 192.168.1.100:/root/git_wdir/ /root/git_wdir/
 
