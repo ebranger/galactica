@@ -70,7 +70,7 @@ while i<len(remote):
         if l[0] == 'Name' or l[0] == 'Namn':
             name = l[2]
 
-            while l[0] != 'Repo':
+            while l[0] != 'Repo' and l[0] != 'Förråd':
                 i = i + 1
                 l = remote[i]
                 l = l.split()
@@ -92,7 +92,7 @@ while i<len(local):
 
             local_available.append(name)
 
-            while l[0] != 'Repo':
+            while l[0] != 'Repo' and l[0] != 'Förråd':
                 i = i + 1
                 l = local[i]
                 l = l.split()
