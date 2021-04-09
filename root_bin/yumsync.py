@@ -67,7 +67,7 @@ while i<len(remote):
 
     if len(l) > 0:
        
-        if l[0] == 'Name':
+        if l[0] == 'Name' or l[0] == 'Namn':
             name = l[2]
 
             while l[0] != 'Repo':
@@ -87,7 +87,7 @@ while i<len(local):
 
     if len(l) > 0:
        
-        if l[0] == 'Name':
+        if l[0] == 'Name' or l[0] == 'Namn':
             name = l[2]
 
             local_available.append(name)
