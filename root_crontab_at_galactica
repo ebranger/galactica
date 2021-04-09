@@ -1,6 +1,6 @@
 * * * * *   /root/git_wdir/galactica/root_bin/killemall.py
 0 * * * *   /root/git_wdir/galactica/root_bin/loadmon.py
-30 1 * * *  /root/git_wdir/galactica/root_bin/yumsync_all
+30 1 * * *  for h in apollo adama starbuck roslin caprica gaius boomer; do ssh  "/root/git_wdir/galactica/root_bin/yumsync.py -y --erase --silent"; done
 0 1 * * *   /root/git_wdir/galactica/root_bin/galactify_all > /dev/null
 0 2 * * *   rsync -a --delete-before /home/ /backup_home 2>&1
 # 0 3 * * * rsync -a --delete-after  /NFS/  /backup_NFS  2>&1
