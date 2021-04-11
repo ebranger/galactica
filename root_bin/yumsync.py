@@ -108,9 +108,9 @@ while i<len(local):
 # -----------------
 
 if yes:
-    command = 'yum -y -C install '
+    command = 'yum -y install '
 else:
-    command = 'yum -C install'
+    command = 'yum install'
 
 n_install = 0
 
