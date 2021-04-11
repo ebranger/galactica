@@ -1,3 +1,5 @@
+#!/bin/bash
+
 if [ "$(hostname)" != 'galactica.physics.uu.se' ];
    then
 	scp 192.168.1.100:/etc/passwd /etc/
@@ -19,6 +21,7 @@ if [ "$(hostname)" != 'galactica.physics.uu.se' ];
         #rsync -a 192.168.1.100:/var/cache/yum/ /var/cache/yum/
 	
 	rsync -a --delete-after 192.168.1.100:/root/git_wdir/ /root/git_wdir/
+        crontab /root/git_wdir/galactica/root_crontab_at_compute_nodes
 	rsync -a --delete-after 192.168.1.100:/root/.ssh/ /root/.ssh/
 
 	rsync -a --delete-after 192.168.1.100:/usr/local/ /usr/local/
