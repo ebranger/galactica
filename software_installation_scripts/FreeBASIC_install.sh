@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Script to install FreeBASIC.
-# Based mostly in instructions in the readme file supplied by FreeBASIC.
+# Based mostly on instructions in the readme file supplied by FreeBASIC.
 
 start_dir=$(pwd)
 
