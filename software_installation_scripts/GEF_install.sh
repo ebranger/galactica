@@ -2,6 +2,7 @@
 
 # Script to install GEF. Based on instructions at
 # http://www.khschmidts-nuclear-web.eu/GEF-2020-1-2.html
+# Need a FreeBASIC compiler (fbc).
 
 start_dir=$(pwd)
 
