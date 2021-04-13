@@ -4,7 +4,7 @@ V=6.22.08
 PREFIX=/usr/local/root_v${V}
 ARCHIVE=root_v${V}.source.tar.gz
 
-wget https://root.cern/download/${ARCHIVE}
+wget -q https://root.cern/download/${ARCHIVE}
 tar xzf ${ARCHIVE}
 mkdir build
 cd build
