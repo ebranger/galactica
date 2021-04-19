@@ -1,1 +1,1 @@
-et -r autologout 60
+set -r autologout 60
