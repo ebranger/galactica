@@ -17,7 +17,7 @@ Please log in to the home node (`galactica`) at least once every 180 day in orde
 
 For computationally heavy work, please use one of the compute nodes.
 
-The cluster is sensitive to heavy disc I/O on the /home folder, so please consider rate limiting your reading/writing from/to files at /home. One way to do that is to `cd` into a directory created by [`mktemp -d`](https://linux.die.net/man/1/mktemp), save your output there and copying it to your home folder when your'e done with your job. Please clean up after yourself by removing the temporary folder when your'e done with it. As a bonus, I/O to/from your job will be faster since the physical disc used for temporary files is mounted on the compute node itself.
+The cluster is sensitive to heavy disc I/O on the /home folder, so please consider rate limiting your reading/writing from/to files at /home. One way to do that is to `cd` into a directory created by [`mktemp -d`](https://linux.die.net/man/1/mktemp), save your output there and copying the results elsewhere when your'e done with your job. Please clean up after yourself by removing the temporary folder when your'e done with it. As a bonus, I/O to/from your job will be faster since the physical disc used for temporary files is mounted on the compute node itself.
 
 To save on the limited disc space, try to not store files at galactica that you don't need for your current application/work/calculation.
 
