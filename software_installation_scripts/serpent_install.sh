@@ -24,7 +24,7 @@ cd $2
 
 # Extract and build latest update.
 tar -xzf $1/Serpent2.tar.gz
-tar -xzf --overwrite $1/sssup2.1.32.tar.gz
+tar -xzf $1/sssup2.1.32.tar.gz
 make clean
 make
 rm -f *.c *.h *.o versions.txt Makefile
