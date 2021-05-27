@@ -54,7 +54,7 @@ done
 # Setup PATH's et.c.
 S=$2/serpent-2.1.32.sh
 ( cat << __EOF__
-export PATH=\$PATH:$2
+export PATH=$2:\$PATH
 export SERPENT_DATA=$2/xsdata
 export SERPENT_ACELIB=sss_endfb7u.xsdata
 __EOF__
