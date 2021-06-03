@@ -1,2 +1,8 @@
+# Setup port 1080 as a proxy to galactica, used by yum.
+1 0 * * * ssh -fNM -D 1080 galactica
+
 0 1 * * *  /root/git_wdir/galactica/root_bin/galactify > /dev/null
 5 16 * * * /root/git_wdir/galactica/sar_data_collection/collect_sar_data.sh /root/sar_data > /dev/null
+
+# Close socket at port 1080.
+59 23 * * * ssh -q -O exit galactica
