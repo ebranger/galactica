@@ -112,7 +112,13 @@ X11Forwarding yes
 ClientAliveInterval 3600
 ClientAliveCountMax 0
 #ShowPatchLevel no
-#UseDNS yes
+
+# Following the advice on
+# https://jrs-s.net/2017/07/01/slow-ssh-logins/
+# with slow DNS's usually being the reason for very slow ssh logins (very slow
+# response after "debug1: SSH2_MSG_SERVICE_ACCEPT received").
+UseDNS no
+
 #PidFile /var/run/sshd.pid
 #MaxStartups 10:30:100
 #PermitTunnel no
