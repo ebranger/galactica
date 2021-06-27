@@ -1,27 +1,29 @@
 #!/bin/bash
 
 # Script to install GEF. Based on instructions at
-# http://www.khschmidts-nuclear-web.eu/GEF-2020-1-2.html
+# http://www.khschmidts-nuclear-web.eu/
 # Need a FreeBASIC compiler (fbc).
 
 start_dir=$(pwd)
 
+V=GEF-2021-V1-1
+
 # Download the GEF source code.
-wget "http://www.khschmidts-nuclear-web.eu/GEF_code/GEF-2020-V1-2/Standalone/GEF-2020-V1-2-source.zip" -O GEF-2020-V1-2-source.zip
+wget "http://www.khschmidts-nuclear-web.eu/GEF_code/${V}/Standalone/${V}-source.zip" -O ${V}-source.zip
 
 # Decompress.
-unzip GEF-2020-V1-2-source.zip
+unzip ${V}-source.zip
 
 # Build.
-cd GEF-2020-V1-2
+cd ${V}
 fbc GEF.bas
 
 # Install.
-D=/usr/local/GEF-2020-V1-2
+D=/usr/local/${V}
 mkdir $D
 cp GEF $D/
 
 # Add to users's PATH.
-echo "export PATH=\$PATH:$D" >> /etc/profile.d/GEF-2020-V1-2.sh
+echo "export PATH=\$PATH:$D" >> /etc/profile.d/${V}.sh
 
 cd $start_dir
