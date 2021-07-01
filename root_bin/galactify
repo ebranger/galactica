@@ -12,7 +12,7 @@ if [ "$(hostname)" != 'galactica.physics.uu.se' ];
 	scp -q 192.168.1.100:/etc/c3.conf /etc/
 	scp -q 192.168.1.100:/etc/sudoers /etc/
 
-	scp -q -r 192.168.1.100:/etc/profile.d /etc/
+	rsync -a --delete-after 192.168.1.100:/etc/profile.d/ /etc/profile.d/
 	scp -q 192.168.1.100:/etc/dconf/db/gdm.d/01-custom-gdm-settings /etc/dconf/db/gdm.d/
 	scp -q 192.168.1.100:/etc/sysconfig/selinux /etc/sysconfig/
 
