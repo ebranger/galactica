@@ -52,7 +52,7 @@ for f in endfb68.zip endfb7.zip jef22.zip jeff31.zip jeff311.zip; do
 done
 
 # Setup PATH's et.c.
-S=$2/serpent-2.1.32.sh
+S=/etc/profile.d/serpent-2.1.32.sh
 ( cat << __EOF__
 export PATH=$2:\$PATH
 export SERPENT_DATA=$2/xsdata
