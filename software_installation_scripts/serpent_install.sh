@@ -39,14 +39,14 @@ mkdir -p photon_data
 cd photon_data
 unzip -qq $1/photon_data.zip
 cd ..
-for f in endfb68.zip endfb7.zip jef22.zip jeff31.zip jeff311.zip; do
-   D=$(basename $f .zip)
+for z in endfb68.zip endfb7.zip jef22.zip jeff31.zip jeff311.zip; do
+   D=$(basename $z .zip)
    mkdir -p $D
    cd $D
-   unzip -qq $1/xsdata/$f
-   for f in *.xsdir; do
-      sed -i -e "s+datapath=/xs/acedata+datapath=$2/xsdata/$D/acedata+g" $f
-      ../$XSCON $f > ../$(basename $f .xsdir).xsdata
+   unzip -qq $1/xsdata/$z
+   for x in *.xsdir; do
+      sed -i -e "s+datapath=/xs/acedata+datapath=$2/xsdata/$D/acedata+g" $x
+      ../$XSCON $x > ../$(basename $x .xsdir).xsdata
    done
    cd ..
 done
