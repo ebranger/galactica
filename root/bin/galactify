@@ -20,7 +20,7 @@ if [ "$(hostname)" != 'galactica.physics.uu.se' ];
         echo "proxy=socks5h://localhost:1080" >> /etc/yum.conf
 	
 	rsync -a --delete-after 192.168.1.100:/root/git_wdir/ /root/git_wdir/
-        crontab /root/git_wdir/galactica/root_crontab_at_compute_nodes
+        crontab /root/git_wdir/galactica/root/crontab_at_compute_nodes
 	rsync -a --delete-after 192.168.1.100:/root/.ssh/ /root/.ssh/
 
 	rsync -a --delete-after 192.168.1.100:/usr/local/ /usr/local/
