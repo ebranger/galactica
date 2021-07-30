@@ -7,7 +7,7 @@ The Linux cluster Galactica consists of one home node that contains, among other
 
 You can use ssh log in to the home node at `galactica.physics.uu.se` for light work such as file handling and editing and some matlab. However, it is important that you do not run massively parallel calculations on the home node as that will slow down the entire cluster. Should you do this (by mistake of course) your calculations may be terminated without prior notification. If in doubt, ask first.
 
-The first time you log in, run the command `passwordless`. After you have done this run the program `loadavg` to see which nodes that are currently available and their present workload.
+The first time you log in, run the command `passwordless`. After you have done this run the program `loadavg` to see which nodes that are currently available and their present workload. The first time you run `loadavg`, you'll need to answer yes for every node to confirm to ssh that you want to connect, which you probably will.
 
 Use ssh to log in to one of the compute nodes, e.g. `ssh adama`to log in to the adama node. There is also a shortcut command named the same as the node, e.g. use `adama` to to log in to the adama node.
 
