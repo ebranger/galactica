@@ -1,0 +1,32 @@
+#!/bin/bash
+
+if [ "$(hostname)" != 'galactica.physics.uu.se' ];
+   then
+	scp -q 192.168.1.100:/etc/passwd /etc/
+	scp -q 192.168.1.100:/etc/shadow /etc/
+	scp -q 192.168.1.100:/etc/group  /etc/
+	scp -q 192.168.1.100:/etc/gshadow /etc/
+	scp -q 192.168.1.100:/etc/hosts /etc/
+	scp -q 192.168.1.100:/etc/resolv.conf /etc/
+	scp -q 192.168.1.100:/etc/bashrc /etc/
+	scp -q 192.168.1.100:/etc/c3.conf /etc/
+	scp -q 192.168.1.100:/etc/sudoers /etc/
+
+	rsync -a --delete-after 192.168.1.100:/etc/profile.d/ /etc/profile.d/
+	scp -q 192.168.1.100:/etc/dconf/db/gdm.d/01-custom-gdm-settings /etc/dconf/db/gdm.d/
+	scp -q 192.168.1.100:/etc/sysconfig/selinux /etc/sysconfig/
+
+        scp -q 192.168.1.100:/etc/yum.conf /etc/
+        echo "proxy=socks5h://localhost:1080" >> /etc/yum.conf
+	
+	rsync -a --delete-after 192.168.1.100:/root/git_wdir/ /root/git_wdir/
+        crontab /root/git_wdir/galactica/root_crontab_at_compute_nodes
+	rsync -a --delete-after 192.168.1.100:/root/.ssh/ /root/.ssh/
+
+	rsync -a --delete-after 192.168.1.100:/usr/local/ /usr/local/
+
+        rsync -a 192.168.1.100:/usr/lib64/R/library/ /usr/lib64/R/library
+        
+        scp -q 192.168.1.100:/etc/ssh/sshd_config /etc/ssh/
+        scp -q 192.168.1.100:/etc/ssh/ssh_config /etc/ssh/
+fi
