@@ -1,3 +1,4 @@
+@reboot echo "System rebooted."
 45 23 * * * cd /root/git_wdir/galactica; git pull -q
 * * * * *   /root/git_wdir/galactica/root/bin/killemall.py
 0 * * * *   /root/git_wdir/galactica/root/bin/loadmon.py
