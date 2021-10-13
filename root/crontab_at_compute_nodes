@@ -1,3 +1,3 @@
-@reboot echo "System rebooted."
+@reboot echo "System booted."
 0 1 * * *  /root/git_wdir/galactica/root/bin/galactify > /dev/null
 5 16 * * * /root/git_wdir/galactica/sar_data_collection/collect_sar_data.sh /root/sar_data > /dev/null
