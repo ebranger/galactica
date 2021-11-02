@@ -9,7 +9,7 @@ You can use ssh log in to the home node at `galactica.physics.uu.se` for light w
 
 The first time you log in, run the command `passwordless`. After you have done this run the program `loadavg` to see which nodes that are currently available and their present workload. The first time you run `loadavg`, you'll need to answer yes for every node to confirm to ssh that you want to connect, which you probably will.
 
-Use ssh to log in to one of the compute nodes, e.g. `ssh adama`to log in to the adama node. There is also a shortcut command named the same as the node, e.g. use `adama` to to log in to the adama node.
+Use ssh to log in to one of the compute nodes, e.g. `ssh adama` to log in to the adama node. There is also a shortcut command named the same as the node, e.g. use `adama` to log in to the adama node.
 
 Please log in to the home node (`galactica`) at least once every 100 day in order to prevent your account from being locked. For this login, you need to use ssh (e.g. [`ssh`](https://linux.die.net/man/1/ssh) on Mac and Linux or [`putty`](https://www.putty.org/) on Windows) and not Fast-X.
 
@@ -39,7 +39,7 @@ To run e.g. serpent with low priority type: `nice -n 19 sss2 -omp 64 ABR`
 
 ## Box connectivity
 
-If you have a SUNET Box account, you can use [`lftp`](https://linux.die.net/man/1/lftp) to connect to it from the cluster to transfer files and directories. To enable this connectivity, you need to execute the steps listed below. This is relatively simple way to transfer files directly to/from the Box cloud without the need to bounce the information to your local computer in between.
+If you have a SUNET Box account, you can use [`lftp`](https://linux.die.net/man/1/lftp) to connect to it from the cluster to transfer files and directories. To enable this connectivity, you need to execute the steps listed below. This is a relatively simple way to transfer files directly to/from the Box cloud without the need to bounce the information to your local computer in between.
 
 1. In the [settings for Box](https://uppsala.app.box.com/account), create a linked email address with an associated password. Below, we are using "user@mail.com" as an example, please replace with your own set external email. You need an extra/linked email because the normal joint webb login used at UU does not work via the command line used here.
 2. On the command line in the cluster, connect to Box using the command `lftp -p 990 -u user@mail.com ftps://ftp.box.com`. You will be prompted for the password associated with the linked email, that you set in the first step. After connecting, you will be able to navigate and issue commands similar to a normal ftp session.
