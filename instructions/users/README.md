@@ -36,3 +36,10 @@ There are some options available for executing calculation jobs on one of the no
 If you are running large jobs in parallel you might want to occupy a whole compute node. However, doing so for an extended time could be problematic as it prevents others from running shorter calculations efficiently. If you intend to run long calculations (i.e., extending beyond hours), please run these in low priority. This is done with the [nice](https://linux.die.net/man/1/nice) command.
 
 To run e.g. serpent with low priority type: `nice -n 19 sss2 -omp 64 ABR`
+
+## Box connectivity
+
+If you have a SUNET Box account, you can use [`lftp`](https://linux.die.net/man/1/lftp) to connect to it from the cluster to transfer files and directories. To enable this connectivity, you need to execute the steps listed below. This is relatively simple way to transfer files directly to/from the Box cloud without the need to bounce the information to your local computer in between.
+
+1. In the [settings for Box](https://uppsala.app.box.com/account), create a linked email address with an associated password. Below, we are using "user@mail.com" as an example, please replace with your own set external email. You need an extra/linked email because the normal joint webb login used at UU does not work via the command line used here.
+2. On the command line in the cluster, connect to Box using the command `lftp -p 990 -u user@mail.com ftps://ftp.box.com`. You will be prompted for the password associated with the linked email, that you set in the first step. After connecting, you will be able to navigate and issue commands similar to a normal ftp session.
