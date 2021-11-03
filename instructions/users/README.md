@@ -37,7 +37,7 @@ If you are running large jobs in parallel you might want to occupy a whole compu
 
 To run e.g. serpent with low priority type: `nice -n 19 sss2 -omp 64 ABR`
 
-## Box connectivity
+## SUNET Box connectivity
 
 If you have a SUNET Box account, you can use [`lftp`](https://linux.die.net/man/1/lftp) to connect to it from the cluster to transfer files and directories. To enable this connectivity, you need to execute the steps listed below. This is a relatively simple way to transfer files directly to/from the Box cloud without the need to bounce the information to your local computer in between.
 
