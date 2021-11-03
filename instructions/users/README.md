@@ -28,12 +28,12 @@ Some plots of CPU and RAM usage of the cluster over time is available in the `/u
 There are some options available for executing calculation jobs on one of the nodes while not being logged-in:
 
 * Schedule your calculation script using [cron](https://linux.die.net/man/5/crontab). An introduction to using cron scheduling is [available here](https://www.cyberciti.biz/faq/how-do-i-add-jobs-to-cron-under-linux-or-unix-oses/).
-* Start a terminal multiplexer in a terminal and run your program in that session before detaching from it. Later, you can (re-)attach to the same session in the same or any other terminal window on the same node. We have the [tmux](https://linux.die.net/man/1/tmux) and [screen](https://linux.die.net/man/1/screen) terminal multiplexer programs installed. One source of information on how to use tmux is [available here](https://github.com/tmux/tmux/wiki) and for screen, a user manual is [available here](https://www.gnu.org/software/screen/manual/screen.html).
-* Run your your script in the background and detached from the terminal, using [nohup](https://linux.die.net/man/1/nohup).
+* Start a terminal multiplexer in a terminal and run your program in that session before detaching from it. Later, you can (re-)attach to the same session in the same or any other terminal window on the same node. We have the [`tmux`](https://linux.die.net/man/1/tmux) and [`screen`](https://linux.die.net/man/1/screen) terminal multiplexer programs installed. One source of information on how to use `tmux` is [available here](https://github.com/tmux/tmux/wiki) and for `screen`, a user manual is [available here](https://www.gnu.org/software/screen/manual/screen.html).
+* Run your your script in the background and detached from the terminal, using [`nohup`](https://linux.die.net/man/1/nohup).
 
 ## Priorities
 
-If you are running large jobs in parallel you might want to occupy a whole compute node. However, doing so for an extended time could be problematic as it prevents others from running shorter calculations efficiently. If you intend to run long calculations (i.e., extending beyond hours), please run these in low priority. This is done with the [nice](https://linux.die.net/man/1/nice) command.
+If you are running large jobs in parallel you might want to occupy a whole compute node. However, doing so for an extended time could be problematic as it prevents others from running shorter calculations efficiently. If you intend to run long calculations (i.e., extending beyond hours), please run these in low priority. This is done with the [`nice`](https://linux.die.net/man/1/nice) command.
 
 To run e.g. serpent with low priority type: `nice -n 19 sss2 -omp 64 ABR`
 
