@@ -11,7 +11,7 @@ You can use ssh log in to the home node at `galactica.physics.uu.se` for light w
 
 If you are a student please use [this form](https://forms.gle/Sujqi2Z7DUvKaWzK6) to submit information needed to create an account at the cluster.
 
-If you are an employee, please send an email to a cluster administrator who will help you to setup an account.
+If you are an employee, please comminicate with a cluster administrator who will help you to setup an account.
 
 The first time you log in, run the command `passwordless`. After you have done this run the program `loadavg` to see which nodes that are currently available and their present workload. The first time you run `loadavg`, you'll need to answer yes for every node to confirm to ssh that you want to connect, which you probably will.
 
