@@ -41,6 +41,7 @@ os.system('echo "%s:%s" > passwd' %(user, passwd))
 os.system('chpasswd < passwd')
 os.system('echo "Username: %s" > passwd' % (user))
 os.system('echo "Password: %s" >> passwd' % (passwd))
+os.system('echo "Please login *today* to avoid account locking." >> passwd')
 os.system('echo "Usage instructions: https://github.com/peter-jansson/galactica/tree/master/instructions/users" >> passwd')
 
 if email:
