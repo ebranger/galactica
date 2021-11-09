@@ -1,5 +1,0 @@
-FROM fedora:29
-
-RUN dnf install -y gcc-c++ gcc-gfortran openmpi
-
-RUN echo "module load mpi" > /etc/profile.d/mpi.sh
