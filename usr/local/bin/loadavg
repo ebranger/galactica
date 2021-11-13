@@ -4,11 +4,12 @@ from numpy import *
 import os
 import sys
 
-#hosts = ['galactica', 'apollo', 'adama', 'starbuck', 'roslin', 'caprica']
-#CPU_max = [1600, 6400, 6400, 6400, 6400, 3200]
+#hosts = ['galactica', 'apollo', 'starbuck', 'adama', 'roslin', 'caprica', 'gaius', 'boomer']
+#CPU_max = [1600, 6400, 6400, 6400, 6400, 3200, 3200, 3200]
 
-hosts = ['galactica', 'apollo', 'starbuck', 'adama', 'roslin', 'caprica', 'gaius', 'boomer']
-CPU_max = [1600, 6400, 6400, 6400, 6400, 3200, 3200, 3200]
+# Skip boomer while it is offline.
+hosts = ['galactica', 'apollo', 'starbuck', 'adama', 'roslin', 'caprica', 'gaius']
+CPU_max = [1600, 6400, 6400, 6400, 6400, 3200, 3200]
 
 if '--detailed' in sys.argv:
     detailed = True
