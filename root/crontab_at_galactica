@@ -1,4 +1,3 @@
-@reboot echo "System booted."
 45 23 * * * cd /root/git_wdir/galactica; git pull -q && crontab root/crontab_at_galactica
 47 23 * * * cd /root/git_wdir/galactica; cp -f usr/local/bin/* /usr/local/bin/
 30 1 * * *  for h in apollo adama starbuck roslin caprica gaius boomer; do ssh $h "/root/git_wdir/galactica/root/bin/yumsync.py -y --erase --silent --remote galactica"; done
