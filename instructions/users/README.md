@@ -13,7 +13,7 @@ If you are a student please use [this form](https://forms.gle/Sujqi2Z7DUvKaWzK6)
 
 If you are an employee, please communicate with a cluster administrator who will help you to setup an account.
 
-The first time you have logged in, run the command `passwordless`. After you have done this, run the program `loadavg` to see which nodes that are currently available and their present workload. The first time you run `loadavg`, you'll need to answer yes for every node to confirm to ssh that you want to connect, which you probably will.
+After the first time you have logged in, run the command `passwordless`. After you have done this, run the program `loadavg` to see which nodes that are currently available and their present workload. The first time you run `loadavg`, you'll need to answer yes for every node to confirm to ssh that you want to connect, which you probably will.
 
 Use ssh to log in to one of the compute nodes, e.g. `ssh adama` to log in to the adama node. There is also a shortcut command named the same as the node, e.g. use `adama` to log in to the adama node.
 
