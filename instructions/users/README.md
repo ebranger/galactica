@@ -19,7 +19,7 @@ Use ssh to log in to one of the compute nodes, e.g. `ssh adama` to log in to the
 
 ## Avoiding account locking
 
-Please log in to the home node (`galactica`) at least once every 100 day in order to prevent your account from being locked. For this login, you need to use ssh (e.g. [`ssh`](https://linux.die.net/man/1/ssh) on Mac and Linux or [`putty`](https://www.putty.org/) on Windows) and not Fast-X.
+Please log in to the home node (`galactica`) at least once every 180 days in order to prevent your account from being locked. For this login, you need to use ssh (e.g. [`ssh`](https://linux.die.net/man/1/ssh) on Mac and Linux or [`putty`](https://www.putty.org/) on Windows) and not Fast-X. If you cannot login to Galactica and suspect that this might be due to the account being locked, please communicate with the cluster administrator to have the account unlocked.
 
 ## Usage
 
