@@ -5,7 +5,8 @@
 0 2 * * *   rsync -a --delete-before --exclude 'root/disc_size_difference' /home/ /backup_home 2>&1
 0 3 * * * rsync -a --delete-after  /NFS/  /backup_NFS  2>&1
 # 0 4 * * * rsync -a --delete-before /TMC/  /backup_TMC  2>&1
-@monthly    /root/git_wdir/galactica/root/bin/disable_180days_old_accounts.bash
+# 2022-09-01: disabled inactivation of user account after 180 days - feature has not been used:
+#@monthly    /root/git_wdir/galactica/root/bin/disable_180days_old_accounts.bash
 
 5 16 * * * /root/git_wdir/galactica/sar_data_collection/collect_sar_data.sh /root/sar_data > /dev/null
 
