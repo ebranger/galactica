@@ -1,0 +1,8 @@
+#!/bin/bash
+
+ssh apollo.physics.uu.se 'source /root/git_wdir/galactica/root/'
+ssh starbuck.physics.uu.se 'source /root/git_wdir/galactica/root/'
+ssh adama.physics.uu.se 'source /root/git_wdir/galactica/root/'
+ssh roslin.physics.uu.se 'source /root/git_wdir/galactica/root/'
+ssh caprica.physics.uu.se 'source /root/git_wdir/galactica/root/'
+ssh gaius.physics.uu.se 'source /root/git_wdir/galactica/root/'
