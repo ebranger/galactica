@@ -1,0 +1,8 @@
+#!/bin/bash
+
+ssh apollo.physics.uu.se $1
+ssh starbuck.physics.uu.se $1
+ssh adama.physics.uu.se $1
+ssh roslin.physics.uu.se $1
+ssh caprica.physics.uu.se $1
+ssh gaius.physics.uu.se $1
