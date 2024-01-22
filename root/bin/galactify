@@ -2,7 +2,7 @@
 
 if [ "$(hostname)" != 'galactica.physics.uu.se' ];
    then
-   echo "galactifying $(hostname)...\n"
+   echo "galactifying $(hostname)..."
 
 	scp -q 192.168.1.100:/etc/passwd /etc/
 	scp -q 192.168.1.100:/etc/shadow /etc/
@@ -29,5 +29,5 @@ if [ "$(hostname)" != 'galactica.physics.uu.se' ];
         scp -q 192.168.1.100:/etc/ssh/sshd_config /etc/ssh/
         scp -q 192.168.1.100:/etc/ssh/ssh_config /etc/ssh/
 
-   echo "...done!\n"
+   echo "...done!"
 fi
