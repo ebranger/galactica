@@ -1,8 +1,8 @@
 #!/bin/bash
 
-ssh apollo.physics.uu.se 'source /root/git_wdir/galactica/root/galactify'
-ssh starbuck.physics.uu.se 'source /root/git_wdir/galactica/root/galactify'
-ssh adama.physics.uu.se 'source /root/git_wdir/galactica/root/galactify'
-ssh roslin.physics.uu.se 'source /root/git_wdir/galactica/root/galactify'
-ssh caprica.physics.uu.se 'source /root/git_wdir/galactica/root/galactify'
-ssh gaius.physics.uu.se 'source /root/git_wdir/galactica/root/galactify'
+ssh apollo.physics.uu.se 'source /root/git_wdir/galactica/root/bin/galactify'
+ssh starbuck.physics.uu.se 'source /root/git_wdir/galactica/root/bin/galactify'
+ssh adama.physics.uu.se 'source /root/git_wdir/galactica/root/bin/galactify'
+ssh roslin.physics.uu.se 'source /root/git_wdir/galactica/root/bin/galactify'
+ssh caprica.physics.uu.se 'source /root/git_wdir/galactica/root/bin/galactify'
+ssh gaius.physics.uu.se 'source /root/git_wdir/galactica/root/bin/galactify'
