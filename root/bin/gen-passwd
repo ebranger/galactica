@@ -42,7 +42,7 @@ os.system('chpasswd < passwd')
 os.system('echo "Username: %s" > passwd' % (user))
 os.system('echo "Password: %s" >> passwd' % (passwd))
 os.system('echo "Please login *today* to avoid account locking." >> passwd')
-os.system('echo "Usage instructions: https://github.com/markuspreston/galactica/tree/master/instructions/users" >> passwd')
+os.system('echo "Usage instructions: https://github.com/ebranger/galactica/tree/master/instructions/users" >> passwd')
 
 if email:
     os.system('cat passwd | mail -s "Do not reply" -r root@galactica.physics.uu.se %s' %(email))
